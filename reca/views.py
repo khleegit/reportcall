@@ -15,14 +15,15 @@ def card_pm(request):
 
 def dash(request):
 	os.environ["ODBCSYSINI"] = "/home/reportcall"
-	#conn = pyodbc.connect('DSN=sqlserverdatasource;Uid=sa;Pwd=dkfmanetsa@dmin;Encrypt=yes;Connection Timeout=30;')
-	conn = pyodbc.connect(
-		driver='{ODBC Driver 17 for SQL Server}',
-		host='61.110.213.49,8453',
-		database='KANG_DB',
-		user='sa',
-		password='dkfmanetsa@dmin'
-	)
+	conn = pyodbc.connect('DSN=sqlserverdatasource;Uid=sa;Pwd=dkfmanetsa@dmin;Encrypt=yes;Connection Timeout=30;')
+	#conn = pyodbc.connect(
+		#driver='{ODBC Driver 17 for SQL Server}',
+		#host='61.110.213.49,8453',
+		#database='KANG_DB',
+		#user='sa',
+		#password='dkfmanetsa@dmin',
+		
+	#)
 
 	try:
 		with conn.cursor() as cursor:
