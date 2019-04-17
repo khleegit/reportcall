@@ -81,14 +81,16 @@ WSGI_APPLICATION = 'reportcall.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         #'ENGINE':'sql_server.pyodbc',        
-        'NAME':'KANG_DB',
-        'USER':'sa',
-        'PASSWORD':'dkfmanetsa@dmin',
-        'HOST':'61.110.213.49,8453',
-        'OPTIONS':{
-           'driver':'ODBC Driver 11 for SQL Server',
-               },
+        #'NAME':'KANG_DB',
+        #'USER':'sa',
+        #'PASSWORD':'dkfmanetsa@dmin',
+        #'HOST':'61.110.213.49,8453',
+        #'OPTIONS':{
+        #   'driver':'ODBC Driver 11 for SQL Server',
+        #       },
     }
 }
 
