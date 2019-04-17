@@ -1,3 +1,4 @@
+import os
 import pyodbc
 from django.shortcuts import render
 
@@ -13,10 +14,12 @@ def card_pm(request):
 	return render(request, 'reca/card_pm.html', {})
 
 def dash(request):
+	os.environ["ODBCSYSINI"] = "/home/reportcall"
+	#conn = pyodbc.connect('DSN=sqlserverdatasource;Uid=sa;Pwd=dkfmanetsa@dmin;Encrypt=yes;Connection Timeout=30;')
 	conn = pyodbc.connect(
 		driver='{ODBC Driver 17 for SQL Server}',
 		host='61.110.213.49,8453',
-		Database='KANG_DB',
+		database='KANG_DB',
 		user='sa',
 		password='dkfmanetsa@dmin'
 	)
