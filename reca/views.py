@@ -3,6 +3,15 @@ from django.shortcuts import render
 
 
 
+def login(request):
+	return render(request, 'reca/login.html', {})
+
+def index(request):
+	return render(request, 'reca/index.html', {})
+	
+def card_pm(request):
+	return render(request, 'reca/card_pm.html', {})
+
 def dash(request):
 	conn = pyodbc.connect(
 		driver='{ODBC Driver 17 for SQL Server}',
@@ -22,3 +31,5 @@ def dash(request):
 		conn.close()
 
 	return render(request, 'reca/dash.html', {'rows':rows})
+
+

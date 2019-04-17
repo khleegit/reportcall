@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>상담 리포트</title>
+
+    <!-- Bootstrap -->
+    <link href="../../static/reca/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../../static/reca/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../../static/reca/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../../static/reca/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="../../static/reca/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../../static/reca/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../../static/reca/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../../static/reca/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="{% url 'index' %}" class="site_title"><i class="fa fa-paw"></i> <span>상담리포트</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>박시영</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            	<div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                	<li><a href="{% url 'index' %}"><i class="fa fa-home"></i> Home </a></li>
+                	<li><a><i class="fa fa-credit-card"></i> 리포트 <span class="fa fa-chevron-down"></span></a>
+                		<ul class="nav child_menu">
+                  		<li><a style="color:gray" href="#none">포기호</a></li>
+                  		<li><a style="color:gray" href="#none">맨티스</a></li>
+                      <li><a>상담사별 상담현황<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li class="sub_menu"><a href="{% url 'card_pm' %}">일별 상담현황</a></li>
+                          <li class="sub_menu"><a style="color:gray" href="#none">월별 상담현황</a></li>
+                        </ul>
+                      </li>
+                      <li><a style="color:gray" href="#none">시간대별 상담현황<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li class="sub_menu"><a style="color:gray" href="#none">일별 상담현황</a></li>
+                          <li class="sub_menu"><a style="color:gray" href="#none">주, 월별 상담현황</a></li>
+                          <li class="sub_menu"><a style="color:gray" href="#none">월, 연도별 상담현황</a></li>
+                        </ul>
+                      </li>
+                      <li><a style="color:gray" href="#none">프랜차이즈별 상담현황</a></li>
+                      <li><a style="color:gray" href="#none">분류별 상담현황</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-credit-card"></i> 리스트 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a style="color:gray" href="#none">일일 상담리스트</a></li>
+                        <li><a style="color:gray" href="#none">월 상담리스트</a></li>
+                        <li><a style="color:gray" href="#none">업체별 월 상담리스트</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <br />
+ 
+            	<div class="menu_section">
+                <h3>Additional</h3>
+                <ul class="nav side-menu">
+                	<li><a><i class="fa fa-question"></i> 고객지원 <span class="fa fa-chevron-down"></span></a>
+                		<ul class="nav child_menu">
+                    		<li><a style="color:gray" href="#none">공지사항</a></li>
+                        <li><a href="https://sites.google.com/view/arumtip" target="_blank">상담 도움말</a></li>
+                    		<li><a style="color:gray" href="#none">업무자료<span class="fa fa-chevron-down"></span></a>
+                      		<ul class="nav child_menu">
+	                      		<li class="sub_menu"><a style="color:gray" href="#none">매뉴얼</a></li>
+	                      		<li class="sub_menu"><a style="color:gray" href="#none">각종 서식</a></li>
+	                  		  </ul>
+                      	</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{% url 'login' %}">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="col-md-12">
+                <form class="form-horizontal form-label-left">
+                  <div class="form-group">
+                    <div class="col-md-2">
+                      <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                      </div>
+                    </div>
+                    <div class="col-md-8" style="text-align: center;">
+                      {% block headline %}
+                      {% endblock %}
+                    </div>
+                    <div class="col-md-2">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <img src="images/img.jpg" alt="">박시영
+                            <span class=" fa fa-angle-down"></span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-usermenu pull-right">
+                            <li><a href="javascript:;"> Profile</a></li>
+                            <li>
+                              <a href="javascript:;">
+                                <span class="badge bg-red pull-right">50%</span>
+                                <span>Settings</span>
+                              </a>
+                            </li>
+                            <li><a href="javascript:;">Help</a></li>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                          </ul>
+                        </li>
+                        <!-- 메일 내용 -->
+                        <li role="presentation" class="dropdown">
+                          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-green">6</span>
+                          </a>
+                          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                            <li>
+                              <a>
+                                <span class="image"><img src="images/img.jpg" alt="" /></span>
+                                <span>
+                                  <span>정수철</span>
+                                  <span class="time">12 mins ago</span>
+                                </span>
+                                <span class="message">
+                                	KS-NET과 제약회사의 ERP시스템과 연동할 정보에 대한 전문이나 상세 컬럼값이 필요합니다. 
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <span class="image"><img src="images/img.jpg" alt="" /></span>
+                                <span>
+                                  <span>이경호</span>
+                                  <span class="time">2 hour ago</span>
+                                </span>
+                                <span class="message">
+                                	보건의료 빅데이터 개방시스템의 공공데이터 목록입니다. 
+                                  	https://opendata.hira.or.kr/op/opc/selectOpenDataList.do?sno=0&publDataTpCd=&searchCnd=&searchWrd=&pageIndex=2
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <span class="image"><img src="images/img.jpg" alt="" /></span>
+                                <span>
+                                  <span>이경호</span>
+                                  <span class="time">7 months ago</span>
+                                </span>
+                                <span class="message">
+                                	의료기관별 상세정보 서비스, 병원코드 정보 서비스, 약국정보 서비스, 요양기관 현황정보를 검토하세요.
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <span class="image"><img src="images/img.jpg" alt="" /></span>
+                                <span>
+                                  <span>정수철</span>
+                                  <span class="time">a year ago</span>
+                                </span>
+                                <span class="message">
+                                	구글 공유사이트 주소입니다.
+                                  	https://sites.google.com/view/smartpharm/%ED%99%88
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <div class="text-center">
+                                <a>
+                                  <strong>See All Alerts</strong>
+                                  <i class="fa fa-angle-right"></i>
+                                </a>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+        <div class="container">
+          <div class="right_col" role="main">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                {% block topcontents %}
+                {% endblock %}
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                {% block middlecontents %}
+                {% endblock %}       
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                {% block lowcontents %}
+                {% endblock %}
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- jQuery -->
+    <script src="../../static/reca/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../../static/reca/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../../static/reca/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../../static/reca/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../../static/reca/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../../static/reca/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../../static/reca/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../../static/reca/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../../static/reca/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../../static/reca/vendors/Flot/jquery.flot.js"></script>
+    <script src="../../static/reca/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../../static/reca/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../../static/reca/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../../static/reca/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../../static/reca/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../../static/reca/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../../static/reca/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../../static/reca/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../../static/reca/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../../static/reca/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../../static/reca/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../../static/reca/vendors/moment/min/moment.min.js"></script>
+    <script src="../../static/reca/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    {% block scripts %}
+    {% endblock %}
+
+    <!-- Custom Theme Scripts -->
+    <script src="../../static/reca/build/js/custom.min.js"></script>
+	
+  </body>
+</html>
+
+
+

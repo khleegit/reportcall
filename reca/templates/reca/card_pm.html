@@ -1,0 +1,632 @@
+{% extends 'reca/base.html' %}
+
+{% block headline %}
+	<h3>상담 내역 조회</h3>
+{% endblock %}
+
+{% block topcontents %}
+	<div class="x_title">
+     	<h2>조회 조건</h2>
+     	<ul class="nav navbar-right panel_toolbox">
+            <li style="padding-right: 50px"><a class="showLoading-link"><i class="fa fa-search" title="조회"></i></a>
+            </li>
+        	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        	</li>
+        	<li><a class="close-link"><i class="fa fa-close"></i></a>
+        	</li>
+     	</ul>
+     	<div class="clearfix"></div>
+ 	</div>
+ 	<div class="x_content">
+ 		<div class="col-md-8">
+	 		<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+		            <div class="col-md-2">             
+	                  	<select class="form-control">
+	                    	<option>요청일자</option>
+	                    	<option>거래일자</option>
+	                  	</select>            
+	                </div>
+		            <div class="col-md-4">
+		                <form class="form-horizontal">
+		                  	<fieldset>
+		                    	<div class="control-group">
+		                      		<div class="controls">
+		                        		<div class="input-prepend input-group">
+		                          			<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+		                          			<input type="text" name="reservation" id="reservation" class="form-control" value="04/05/2019 - 04/05/2019" />
+		                        		</div>
+		                      		</div>
+		                    	</div>
+		                  	</fieldset>
+		                </form>
+		            </div>      
+	            	<div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >승인상태</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>승인</option>
+	                        <option>거절</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1"  style="text-align:right;">
+	            		<label class="control-label">취소구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>주문번호</option>
+	                        <option>거래번호</option>
+	                    </select>
+		            </div>
+	            </div>
+	        </form>
+
+	        <form class="form-horizontal form-label-left">
+	            <div class="form-group">              	
+		            <div class="col-md-1"  style="text-align:right;">
+	            		<label class="control-label">승인구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>1000</option>
+	                        <option>1300</option>
+	                        <option>1010</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >할부</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>일시불</option>
+	                        <option>3개월</option>
+	                        <option>6개월</option>
+	                        <option>9개월</option>
+	                        <option>ALL</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >재전송</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>기본</option>
+	                        <option>재전송</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >거래구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>ISP</option>
+	                        <option>MPI</option>
+	                        <option>일반거래</option>
+	                    </select>
+		            </div>
+	            </div>
+	        </form>>
+	    </div>
+	    <div class="col-md-4">
+	    	<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+			    	<div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="주문자명을 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="상품명을 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	    	<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+			    	<div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="승인번호를 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="상점아이디를 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	        <form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+	 				<div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="주문번호를 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="거래번호를 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+ 	</div>
+{% endblock %}
+
+{% block middlecontents %}
+	<div class="x_title">
+     	<h2>신용카드 거래내역 조회</h2>
+     	<ul class="nav navbar-right panel_toolbox">
+            <li><a class="apply-link"><i class="fa fa-file-excel-o" title="엑셀 저장"></i></a>
+            </li>
+            <li style="padding-right: 50px"><a class="apply-link"><i class="fa fa-file-text-o" title="csv파일 저장"></i></a>
+            </li>
+        	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        	</li>
+        	<li><a class="close-link"><i class="fa fa-close"></i></a>
+        	</li>
+     	</ul>
+     	<div class="clearfix"></div>
+ 	</div>
+ 	<div class="x_content">
+     	<table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+        	<thead>
+          		<tr>
+          			<th>
+          				<th><input type="checkbox" id="check-all" class="flat"></th>
+          			</th>
+           			<th style="text-align:center;">승인상태</th>
+           			<th style="text-align:center;">취소구분</th>
+             		<th style="text-align:center;">승인구분</th>
+             		<th style="text-align:center;">요청일</th>
+             		<th style="text-align:center;">주문자명</th>
+             		<th style="text-align:center;">상품명</th>
+             		<th style="text-align:center;">금액</th>
+             		<th style="text-align:center;">할부</th>
+             		<th style="text-align:center;">거래일</th>
+             		<th style="text-align:center;">승인번호</th>
+             		<th style="text-align:center;">카드번호</th>
+             		<th style="text-align:center;">카드유효기간</th>
+             		<th style="text-align:center;">상점아이디</th>
+             		<th style="text-align:center;">주문번호</th>
+             		<th style="text-align:center;">거래번호</th>
+
+          		</tr>
+      		</thead>
+      		<tbody>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-04</td>
+         			<td>미래약국</td>
+         			<td>감기약</td>
+         			<td>50,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18015523</td>
+         			<td>1801-****-3456-1111</td>
+         			<td>03/2020</td>
+         			<td>2999199999</td>
+         			<td>ttd-200406140251-456</td>
+         			<td>ttd-432446530251-143</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>거절</td>
+         			<td>주문번호</td>
+         			<td>확인필요</td>
+         			<td>2019-04-04</td>
+         			<td>사랑병원</td>
+         			<td>진통제</td>
+         			<td>530,000</td>
+         			<td>3개월</td>
+         			<td>2019-04-04</td>
+         			<td>18017498</td>
+         			<td>5890-****-4885-2222</td>
+         			<td>05/2021</td>
+         			<td>2999588888</td>
+         			<td>ttd-165306140251-446</td>
+         			<td>ttd-309746530251-888</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>가산약국</td>
+         			<td>파스</td>
+         			<td>15,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-05</td>
+         			<td>18016534</td>
+         			<td>1234-****-5678-3333</td>
+         			<td>10/2020</td>
+         			<td>4999277777</td>
+         			<td>ttd-458876140251-109</td>
+         			<td>ttd-346876530251-743</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+        		<tr>
+        			<td>
+						<th><input type="checkbox" id="check-all" class="flat"></th>
+					</td>
+         			<td>승인</td>
+         			<td></td>
+         			<td>확인필요</td>
+         			<td>2019-04-05</td>
+         			<td>구로병원</td>
+         			<td>영양제</td>
+         			<td>750,000</td>
+         			<td>일시불</td>
+         			<td>2019-04-04</td>
+         			<td>18019861</td>
+         			<td>1111-****-2222-6666</td>
+         			<td>09/2022</td>
+         			<td>3349155555</td>
+         			<td>ttd-987606140251-009</td>
+         			<td>ttd-668896530251-756</td>
+        		</tr>
+      		</tbody>
+     	</table>
+ 	</div>
+{% endblock %}
+
+{% block lowcontents %}
+	<div class="x_title">
+     	<h2>상세 내역</h2>
+     	<ul class="nav navbar-right panel_toolbox">
+            <li style="padding-right: 50px"><a class="undo-link"><i class="fa fa-undo" title="결제취소"></i></a>
+            </li>
+        	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        	</li>
+        	<li><a class="close-link"><i class="fa fa-close"></i></a>
+        	</li>
+     	</ul>
+     	<div class="clearfix"></div>
+ 	</div>
+ 	<div class="x_content">
+ 		<div class="col-md-4">
+ 			<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">주문자명</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="미래약국">
+	                </div>
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">연락처</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="010-1234-5678">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">상점ID</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="2999199999">
+	                </div>
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">이메일</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="abcd@naver.com">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">카드번호</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="1801-****-3456-1111">
+	                </div>
+	                <label class="control-label col-md-2 col-sm-3 col-xs-12">유효기간</label>
+	                <div class="col-md-4 col-sm-9 col-xs-12">
+	                  <input type="text" class="form-control" readonly="readonly" placeholder="010-1234-5678">
+	                </div>
+	            </div>
+            </form>
+ 		</div>
+ 		<div class="col-md-8">
+ 			<div class="col-md-1" style="text-align: center;">
+              <!-- required for floating -->
+              <!-- Nav tabs -->
+              	<ul class="nav nav-tabs tabs-left">
+                	<li class="active"><a href="#home" data-toggle="tab">주요</a>
+                	</li>
+                	<li><a href="#profile" data-toggle="tab">추가</a>
+                	</li>
+                	<li><a href="#messages" data-toggle="tab">추가2</a>
+                	</li>
+              	</ul>
+            </div>
+
+            <div class="col-md-11">
+	          <!-- Tab panes -->
+	          	<div class="tab-content">
+	            	<div class="tab-pane active" id="home">
+	              		<form class="form-horizontal form-label-left">
+				 			<div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">승인상태</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="승인">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">취소구분</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">승인구분</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="확인필요">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">요청일</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="2019-04-04">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">상품명</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="감기약">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">금액</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="50,000">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">할부</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="일시불">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">거래일</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="2019-04-04">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">승인번호</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="18015523">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">주문번호</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="ttd-200406140251-456">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">거래번호</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="ttd-432446530251-143">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">현금취소</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="">
+				                </div>
+				            </div>
+			            </form>
+	            	</div>
+	            	<div class="tab-pane" id="profile">
+	            		<form class="form-horizontal form-label-left">
+				 			<div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">재전송</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="기본">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">유무선</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="유선">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">거래구분</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="ISP">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">요청시간</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="14:25:54">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">발급사</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="비씨카드">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">매입사</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="비씨카드">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">가맹점</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="123456789098765">
+				                </div>
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">거래시간</label>
+				                <div class="col-md-2 col-sm-9 col-xs-12">
+				                  <input type="text" class="form-control" readonly="readonly" placeholder="14:26:08">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label class="control-label col-md-1 col-sm-3 col-xs-12">비고</label>
+					                <div class="col-md-11 col-sm-9 col-xs-12">
+				                      	<textarea class="resizable_textarea form-control" readonly="readonly" placeholder=""></textarea>
+				                    </div>
+				            </div>
+			            </form>
+			        </div>
+	            	<div class="tab-pane" id="messages"></div>
+	        	</div>
+	    	</div>
+	    <div class="clearfix"></div>
+ 	</div>
+{% endblock %}
+
+{% block scripts %}
+	<!-- Datatables -->
+    <script src="../../static/reca/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../../static/reca/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/vfs_fonts.js"></script>
+    $('datatable-checkbox').DataTable();
+{% endblock %}
