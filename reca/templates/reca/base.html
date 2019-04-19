@@ -66,10 +66,10 @@
                 		<ul class="nav child_menu">
                   		<li><a style="color:gray" href="#none">포기호</a></li>
                   		<li><a style="color:gray" href="#none">맨티스</a></li>
-                      <li><a>상담사별 상담현황<span class="fa fa-chevron-down"></span></a>
+                      <li><a style="color:gray">상담사별 상담현황<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li class="sub_menu"><a href="{% url 'rp_daily_cs' %}">일별 상담현황</a></li>
-                          <li class="sub_menu"><a href="{% url 'dash' %}">월별 상담현황</a></li>
+                          <li class="sub_menu"><a style="color:gray" href="#none">일별 상담현황</a></li>
+                          <li class="sub_menu"><a style="color:gray" href="#none">월별 상담현황</a></li>
                         </ul>
                       </li>
                       <li><a style="color:gray" href="#none">시간대별 상담현황<span class="fa fa-chevron-down"></span></a>
@@ -85,15 +85,15 @@
                   </li>
                   <li><a><i class="fa fa-credit-card"></i> 리스트 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a style="color:gray" href="#none">일일 상담리스트</a></li>
-                        <li><a style="color:gray" href="#none">월 상담리스트</a></li>
+                        <li><a href="{% url 'ls_period_cs' %}">기간별 상담리스트</a></li>
+                        <li><a href="{% url 'dash' %}">월 상담리스트</a></li>
                         <li><a style="color:gray" href="#none">업체별 월 상담리스트</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
 
-              <br />
+              <br/>
  
             	<div class="menu_section">
                 <h3>Additional</h3>

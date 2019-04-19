@@ -22,7 +22,7 @@ def dash(request):
 	return render(request, 'reca/dash.html', {})
 	"""
 
-def rp_daily_cs(request):
+def ls_period_cs(request):
 	#return render(request, 'reca/rp_daily_cs.html', {})
 	try:
 		with conn.cursor() as cursor:
@@ -32,7 +32,7 @@ def rp_daily_cs(request):
 		print(msg)
 	#finally:
 		#conn.close()
-	return render(request, 'reca/rp_daily_cs.html', {'drpt':drpt})
+	return render(request, 'reca/ls_period_cs.html', {'drpt':drpt})
 
 	
 def card_pm(request):
