@@ -25,7 +25,7 @@ SECRET_KEY = 'n50p8^7rs*=#c3mb65lnl8%(5es=uai!grk2=wk8q*vg1s_n71'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.10']
 
 
 # Application definition
@@ -89,7 +89,7 @@ DATABASES = {
         #'PASSWORD':'dkfmanetsa@dmin',
         #'HOST':'61.110.213.49,8453',
         #'OPTIONS':{
-        #   'driver':'ODBC Driver 11 for SQL Server',
+        #   'driver':'ODBC Driver 17 for SQL Server',
         #       },
     }
 }

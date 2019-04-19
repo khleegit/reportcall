@@ -1,8 +1,10 @@
 {% extends 'reca/base.html' %}
 
 {% block headline %}
-	<h3>가상계좌 내역 조회</h3>
+	<h3>일별 상담현황</h3>
 {% endblock %}
+
+
 
 {% block topcontents %}
 	<div class="x_title">
@@ -151,7 +153,7 @@
 
 {% block middlecontents %}
 	<div class="x_title">
-     	<h2>신용카드 거래내역 조회</h2>
+     	<h2>일별 상담 리스트</h2>
      	<ul class="nav navbar-right panel_toolbox">
             <li><a class="apply-link"><i class="fa fa-file-excel-o" title="엑셀 저장"></i></a>
             </li>
@@ -165,271 +167,49 @@
      	<div class="clearfix"></div>
  	</div>
  	<div class="x_content">
-     	<table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+     	<table id="datatable-buttons" class="table table-striped table-bordered">
         	<thead>
           		<tr>
-          			<th>
-          				<th><input type="checkbox" id="check-all" class="flat"></th>
-          			</th>
-           			<th style="text-align:center;">승인상태</th>
-           			<th style="text-align:center;">취소구분</th>
-             		<th style="text-align:center;">승인구분</th>
-             		<th style="text-align:center;">요청일</th>
-             		<th style="text-align:center;">주문자명</th>
-             		<th style="text-align:center;">상품명</th>
-             		<th style="text-align:center;">금액</th>
-             		<th style="text-align:center;">할부</th>
-             		<th style="text-align:center;">거래일</th>
-             		<th style="text-align:center;">승인번호</th>
-             		<th style="text-align:center;">카드번호</th>
-             		<th style="text-align:center;">카드유효기간</th>
-             		<th style="text-align:center;">상점아이디</th>
-             		<th style="text-align:center;">주문번호</th>
-             		<th style="text-align:center;">거래번호</th>
+           			<th style="text-align:center;">업체번호</th>
+           			<th style="text-align:center;">업체명</th>
+             		<th style="text-align:center;">상담번호</th>
+             		<th style="text-align:center;">연도</th>
+             		<th style="text-align:center;">월</th>
+             		<th style="text-align:center;">일</th>
+             		<th style="text-align:center;">시간</th>
+             		<th style="text-align:center;">접수자</th>
+             		<th style="text-align:center;">진행자</th>
+             		<th style="text-align:center;">완료자</th>
+             		<th style="text-align:center;">업체코드1</th>
+             		<th style="text-align:center;">업체분류명</th>
+             		<th style="text-align:center;">상담분류1</th>
+             		<th style="text-align:center;">상담분류2</th>
+             		<th style="text-align:center;">접진초</th>
+             		<th style="text-align:center;">진완초</th>
 
           		</tr>
       		</thead>
       		<tbody>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-04</td>
-         			<td>미래약국</td>
-         			<td>감기약</td>
-         			<td>50,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18015523</td>
-         			<td>1801-****-3456-1111</td>
-         			<td>03/2020</td>
-         			<td>2999199999</td>
-         			<td>ttd-200406140251-456</td>
-         			<td>ttd-432446530251-143</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>거절</td>
-         			<td>주문번호</td>
-         			<td>확인필요</td>
-         			<td>2019-04-04</td>
-         			<td>사랑병원</td>
-         			<td>진통제</td>
-         			<td>530,000</td>
-         			<td>3개월</td>
-         			<td>2019-04-04</td>
-         			<td>18017498</td>
-         			<td>5890-****-4885-2222</td>
-         			<td>05/2021</td>
-         			<td>2999588888</td>
-         			<td>ttd-165306140251-446</td>
-         			<td>ttd-309746530251-888</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>가산약국</td>
-         			<td>파스</td>
-         			<td>15,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-05</td>
-         			<td>18016534</td>
-         			<td>1234-****-5678-3333</td>
-         			<td>10/2020</td>
-         			<td>4999277777</td>
-         			<td>ttd-458876140251-109</td>
-         			<td>ttd-346876530251-743</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
-        		<tr>
-        			<td>
-						<th><input type="checkbox" id="check-all" class="flat"></th>
-					</td>
-         			<td>승인</td>
-         			<td></td>
-         			<td>확인필요</td>
-         			<td>2019-04-05</td>
-         			<td>구로병원</td>
-         			<td>영양제</td>
-         			<td>750,000</td>
-         			<td>일시불</td>
-         			<td>2019-04-04</td>
-         			<td>18019861</td>
-         			<td>1111-****-2222-6666</td>
-         			<td>09/2022</td>
-         			<td>3349155555</td>
-         			<td>ttd-987606140251-009</td>
-         			<td>ttd-668896530251-756</td>
-        		</tr>
+      			{% for dr in drpt %}
+	        		<tr style="text-align:center;">
+	         			<td>{{dr.CUST_NO}}</td>
+	         			<td>{{dr.CUST_NAME}}</td>
+	         			<td>{{dr.COUNSEL_NO}}</td>
+	         			<td>{{dr.YY}}</td>
+	         			<td>{{dr.MM}}</td>
+	         			<td>{{dr.DD}}</td>
+	         			<td>{{dr.HH}}</td>
+	         			<td>{{dr.IUN}}</td>
+	         			<td>{{dr.PUN}}</td>
+	         			<td>{{dr.CUN}}</td>
+	         			<td>{{dr.CUST_CODE1}}</td>
+	         			<td>{{dr.GL}}</td>
+	         			<td>{{dr.C1N}}</td>
+	         			<td>{{dr.C2N}}</td>
+	         			<td>{{dr.PISS}}</td>
+	         			<td>{{dr.CPSS}}</td>
+	        		</tr>
+        		{% endfor %}
       		</tbody>
      	</table>
  	</div>
@@ -613,20 +393,39 @@
 
 {% block scripts %}
 	<!-- Datatables -->
-    <script src="../../static/pap/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../../static/pap/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../../static/pap/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../../static/pap/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../../static/pap/vendors/pdfmake/build/vfs_fonts.js"></script>
-    $('datatable-checkbox').DataTable();
+    <script src="../../static/reca/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../../static/reca/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!--
+    <script>
+	    $(document).ready(function() {
+		    var t = $('#datatable').DataTable( {
+		        "columnDefs": [ {
+		            "searchable": false,
+		            "orderable": false,
+		            "targets": 0
+		        } ],
+		        "order": [[ 1, 'asc' ]]
+		    } );
+		 
+		    t.on( 'order.dt search.dt', function () {
+		        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+		            cell.innerHTML = i+1;
+		        } );
+		    } ).draw();
+		} );
+	</script>
+-->
 {% endblock %}
