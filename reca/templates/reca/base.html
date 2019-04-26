@@ -66,10 +66,9 @@
                 		<ul class="nav child_menu">
                   		<li><a style="color:gray" href="#none">포기호</a></li>
                   		<li><a style="color:gray" href="#none">맨티스</a></li>
-                      <li><a style="color:gray">상담사별 상담현황<span class="fa fa-chevron-down"></span></a>
+                      <li><a>상담사별 상담현황<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li class="sub_menu"><a style="color:gray" href="#none">일별 상담현황</a></li>
-                          <li class="sub_menu"><a style="color:gray" href="#none">월별 상담현황</a></li>
+                          <li class="sub_menu"><a href="{% url 'rp_period_user' %}">기간별 상담현황</a></li>
                         </ul>
                       </li>
                       <li><a style="color:gray" href="#none">시간대별 상담현황<span class="fa fa-chevron-down"></span></a>
@@ -88,6 +87,7 @@
                         <li><a href="{% url 'ls_period_cs' %}">기간별 상담리스트</a></li>
                         <li><a href="{% url 'dash' %}">월 상담리스트</a></li>
                         <li><a style="color:gray" href="#none">업체별 월 상담리스트</a></li>
+                        <li><a href="{% url 'ls_period_csct' %}">상담 내역 조회</a></li>
                     </ul>
                   </li>
                 </ul>

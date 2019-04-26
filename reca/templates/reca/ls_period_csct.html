@@ -1,0 +1,235 @@
+{% extends 'reca/base.html' %}
+
+{% block headline %}
+	<h3>기간별 상담현황조회</h3>
+{% endblock %}
+
+
+
+{% block topcontents %}
+	<div class="x_title">
+     	<h2>조회 조건</h2>
+     	<ul class="nav navbar-right panel_toolbox">
+            <li style="padding-right: 50px"><a type="submit"><i class="fa fa-search" title="조회"></i></a>
+            </li>
+        	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        	</li>
+        	<li><a class="close-link"><i class="fa fa-close"></i></a>
+        	</li>
+     	</ul>
+     	<div class="clearfix"></div>
+ 	</div>
+ 	<div class="x_content">
+ 		<div class="col-md-8">
+	 		<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+		            <div class="col-md-1" style="text-align:right;">
+		            	<label class="control-label" >조회일자</label>                        
+	                </div>
+		            <div class="col-md-4">
+		                <form class="form-horizontal">
+		                  	<fieldset>
+		                    	<div class="control-group">
+		                      		<div class="controls">
+		                        		<div class="input-prepend input-group">
+		                          			<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+		                          			<input type="text" name="reservation" id="reservation" class="form-control" value="04/05/2019 - 04/05/2019" />
+		                        		</div>
+		                      		</div>
+		                    	</div>
+		                  	</fieldset>
+		                </form>
+		            </div>      
+	            	<div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >승인상태</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>승인</option>
+	                        <option>거절</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1"  style="text-align:right;">
+	            		<label class="control-label">취소구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>주문번호</option>
+	                        <option>거래번호</option>
+	                    </select>
+		            </div>
+	            </div>
+	        </form>
+
+	        <form class="form-horizontal form-label-left">
+	            <div class="form-group">              	
+		            <div class="col-md-1"  style="text-align:right;">
+	            		<label class="control-label">승인구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>1000</option>
+	                        <option>1300</option>
+	                        <option>1010</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >할부</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>일시불</option>
+	                        <option>3개월</option>
+	                        <option>6개월</option>
+	                        <option>9개월</option>
+	                        <option>ALL</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >재전송</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>기본</option>
+	                        <option>재전송</option>
+	                    </select>
+		            </div>
+		            <div class="col-md-1" style="text-align:right;">
+	            		<label class="control-label" >거래구분</label>
+	        		</div>
+	                <div class="col-md-2">
+	                    <select class="form-control">
+	                    	<option>전체</option>
+	                        <option>ISP</option>
+	                        <option>MPI</option>
+	                        <option>일반거래</option>
+	                    </select>
+		            </div>
+	            </div>
+	        </form>>
+	    </div>
+	    <div class="col-md-4">
+	    	<form class="form-horizontal form-label-left">
+	    		{% csrf_token %}
+	 			<div class="form-group">
+			    	<div class="col-md-6">
+	                  	<input type="text" class="form-control" name="q" value="{{q}}" placeholder="검색할 접수내용을 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="상품명을 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	    	<form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+			    	<div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="승인번호를 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="상점아이디를 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	        <form class="form-horizontal form-label-left">
+	 			<div class="form-group">
+	 				<div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="주문번호를 입력하세요">
+	                </div>
+	                <div class="col-md-6">
+	                  	<input type="text" class="form-control" placeholder="거래번호를 입력하세요">
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+ 	</div>
+{% endblock %}
+
+{% block middlecontents %}
+	<div class="x_title">
+     	<h2>일별 상담 리스트</h2>
+     	<ul class="nav navbar-right panel_toolbox">
+            <li><a class="apply-link"><i class="fa fa-file-excel-o" title="엑셀 저장"></i></a>
+            </li>
+            <li style="padding-right: 50px"><a class="apply-link"><i class="fa fa-file-text-o" title="csv파일 저장"></i></a>
+            </li>
+        	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        	</li>
+        	<li><a class="close-link"><i class="fa fa-close"></i></a>
+        	</li>
+     	</ul>
+     	<div class="clearfix"></div>
+ 	</div>
+ 	<div class="x_content">
+     	<table id="datatable-buttons" class="table table-striped table-bordered">
+        	<thead>
+          		<tr>
+           			<th style="text-align:center;">업체명</th>
+           			<th style="text-align:center;">상담번호</th>
+             		<th style="text-align:center;">접수일</th>
+             		<th style="text-align:center;">접수시간</th>
+             		<th style="text-align:center;">등록구분</th>
+             		<th style="text-align:center;">등록순서</th>
+             		<th style="text-align:center;">등록내용</th>
+          		</tr>
+      		</thead>
+      		<tbody>
+      			{% for dr in csct %}
+	        		<tr style="text-align:center;">
+	         			<td>{{dr.CUST_NAME}}</td>
+	         			<td>{{dr.COUNSEL_NO}}</td>
+	         			<td>{{dr.IN_DATE}}</td>
+	         			<td>{{dr.IN_TIME}}</td>
+	         			<td>{{dr.CG}}</td>
+	         			<td>{{dr.SEQ_NO}}</td>
+	         			<td>{{dr.COUNSEL_CONTENTS}}</td>
+	        		</tr>
+        		{% endfor %}
+      		</tbody>
+     	</table>
+ 	</div>
+{% endblock %}
+
+
+{% block lowcontents %}	
+{% endblock %}
+
+
+{% block scripts %}
+	<!-- Datatables -->
+    <script src="../../static/reca/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../../static/reca/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../../static/reca/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../../static/reca/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script>
+    	$('#fromDate').daterangepicker({
+		  language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다.
+		  pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다.
+		  defalutDate : new Date() // 기본값으로 오늘 날짜를 입력한다. 기본값을 해제하려면 defaultDate 옵션을 생략한다.
+		  var fromDate = Date.create($('#fromDate').val()).format('{yyyy}-{MM}-{dd}');
+		});
+
+		$('#toDate').daterangepicker({
+		  language : 'ko',
+		  pickTime : false,
+		  defalutDate : new Date()
+		  var fromDate = Date.create($('#toDate').val()).format('{yyyy}-{MM}-{dd}');
+		});
+    	
+    </script>
+{% endblock %}

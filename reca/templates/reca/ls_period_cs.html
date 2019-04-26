@@ -1,7 +1,7 @@
 {% extends 'reca/base.html' %}
 
 {% block headline %}
-	<h3>일별 상담현황</h3>
+	<h3>기간별 상담리스트</h3>
 {% endblock %}
 
 
@@ -117,7 +117,7 @@
 	    	<form class="form-horizontal form-label-left">
 	 			<div class="form-group">
 			    	<div class="col-md-6">
-	                  	<input type="text" class="form-control" placeholder="주문자명을 입력하세요">
+	                  	<input type="text" class="form-control" placeholder="검색할 접수내용을 입력하세요">
 	                </div>
 	                <div class="col-md-6">
 	                  	<input type="text" class="form-control" placeholder="상품명을 입력하세요">
@@ -405,6 +405,22 @@
     <script src="../../static/reca/vendors/jszip/dist/jszip.min.js"></script>
     <script src="../../static/reca/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../../static/reca/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script>
+    	$('#fromDate').daterangepicker({
+		  language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다.
+		  pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다.
+		  defalutDate : new Date() // 기본값으로 오늘 날짜를 입력한다. 기본값을 해제하려면 defaultDate 옵션을 생략한다.
+		  var fromDate = Date.create($('#fromDate').val()).format('{yyyy}-{MM}-{dd}');
+		});
+
+		$('#toDate').daterangepicker({
+		  language : 'ko',
+		  pickTime : false,
+		  defalutDate : new Date()
+		  var fromDate = Date.create($('#toDate').val()).format('{yyyy}-{MM}-{dd}');
+		});
+    	
+    </script>
 <!--
     <script>
 	    $(document).ready(function() {
